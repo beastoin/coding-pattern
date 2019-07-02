@@ -30,6 +30,9 @@ func TestDoSlidingWindow(t *testing.T) {
 		{
 			[]int{1, 2, 2, 2, 2, 1}, 6, 6, 10,
 		},
+		{
+			[]int{1, 3, 2, 4, 1, 1, 1, 5, 1, 9, 2, 5, 8, 3, 1, 1, 1}, 17, 4, 24,
+		},
 	}
 
 	for _, tc := range testCases {
