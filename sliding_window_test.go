@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestDoSlidingWindow(t *testing.T) {
+func TestFindMaxSum(t *testing.T) {
 	var testCases = []struct {
 		arr         []int
 		n           int
@@ -36,9 +36,33 @@ func TestDoSlidingWindow(t *testing.T) {
 	}
 
 	for _, tc := range testCases {
-		sum := MaxSum(tc.arr, tc.n, tc.k)
+		sum := FindMaxSum(tc.arr, tc.n, tc.k)
 		if sum != tc.expectedSum {
 			t.Errorf("Expect %v but actualy %v", tc.expectedSum, sum)
+		}
+	}
+}
+
+func TestFindLongestDistinctChars(t *testing.T) {
+	var testCases = []struct {
+		arr           []byte
+		n             int
+		k             int
+		expectedChars []byte
+	}{
+		{
+			[]byte{}, 0, 0, []byte{},
+		},
+	}
+
+	for _, tc := range testCases {
+		chars := FindLongestDistinctChars(tc.arr, tc.n, tc.k)
+		for _, c := range chars {
+			for _, ex := range tc.expectedChars {
+				if c != ex {
+					t.Errorf("Expect %v but actualy %v", string(tc.expectedChars), string(chars))
+				}
+			}
 		}
 	}
 }
